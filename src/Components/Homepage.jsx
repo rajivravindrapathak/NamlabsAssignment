@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Homepage = () => {
 
@@ -9,16 +10,8 @@ const Homepage = () => {
         setData(JSON.parse(LocalArray))
     }, [data])
 
-    const handleEdit = (doutindex, newdata) => {
-        const _data = data.filter((e, dinindex) => {
-            if(doutindex !== dinindex)  {
-                return e
-            } else {
-                return newdata
-            }
-        })
-        setData(_data)
-        localStorage.setItem('LocalArray', JSON.stringify(_data))
+    const handleEdit = (dindex) => {
+        localStorage.setItem('editIndex', dindex)
     }
 
     const handleDelete = (doutindex) => {
@@ -38,7 +31,7 @@ const Homepage = () => {
                     <div className='mapDiv'>
                         <span>Title: {e.title}</span>,
                         <span> desccription: {e.description}</span>
-                        <button onClick={() => handleEdit()}>edit</button>
+                        <Link to='/edit'><button className='EditButton' onClick={() => handleEdit(dindex)}>edit</button></Link>
                         <button onClick={() => handleDelete(dindex)} >delete</button> 
                     </div>
                     

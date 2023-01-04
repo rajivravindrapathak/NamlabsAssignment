@@ -16,7 +16,7 @@ const Createissuepage = () => {
 
     const handleSubmit = () => {
         console.log({ title, description})
-        const LocalArray = localStorage.getItem('LocalArray') || []
+        const LocalArray = localStorage.getItem('LocalArray') && localStorage.getItem('LocalArray').length > 0 ? JSON.parse(localStorage.getItem('LocalArray')) : []
         localStorage.setItem('LocalArray', JSON.stringify([...LocalArray, {title, description}])) 
     }
 
@@ -29,7 +29,7 @@ const Createissuepage = () => {
             <textarea placeholder='description' required
             onChange={(e)=> handleDescription(e)} value={description}
             /><br />
-            <button onClick={handleSubmit} className='saveButton'><Link to="/homepage">Save</Link></button>
+            <Link to="/homepage"><button onClick={handleSubmit} className='saveButton'>Save</button></Link>
         </div>
     )
 }

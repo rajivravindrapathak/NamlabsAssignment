@@ -53,3 +53,16 @@ textarea {
   margin: 5px;
   border-radius: 5px;
 }
+
+.EditButton {
+  width: 150px;
+  height: 40px;
+  text-decoration: none;
+  background-color: rgb(6, 136, 136);
+  color: white;
+  border: none;
+  font-size: 25px;
+  font-weight: bolder;
+  margin: 5px;
+  border-radius: 5px;
+}
